@@ -18,12 +18,6 @@
           dom_id: "swagger-ui-container",
           supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
           supportHeaderParams: false,
-          onComplete: function(swaggerApi, swaggerUi){
-            if(console) {
-              console.log("Loaded SwaggerUI")
-            }
-            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});u
-          },
           onFailure: function(data) {
             if(console) {
               console.log("Unable to Load SwaggerUI");

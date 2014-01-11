@@ -1435,7 +1435,6 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
     ResourceView.prototype.render = function() {
       var operation, _i, _len, _ref4;
-      console.log(this.model.description);
       $(this.el).html(Handlebars.templates.resource(this.model));
       this.number = 0;
       _ref4 = this.model.operationsArray;
@@ -1581,6 +1580,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
           parent: this
         };
         isFileUpload = false;
+        console.log(form);
         _ref5 = form.find("input");
         for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
           o = _ref5[_i];
@@ -1609,6 +1609,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         opts.responseContentType = $("div select[name=responseContentType]", $(this.el)).val();
         opts.requestContentType = $("div select[name=parameterContentType]", $(this.el)).val();
         $(".response_throbber", $(this.el)).show();
+        console.log(this.model);
         if (isFileUpload) {
           return this.handleFileUpload(map, form);
         } else {
@@ -1634,6 +1635,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       }
       bodyParam = new FormData();
       _ref6 = this.model.parameters;
+      console.log(_ref6);
       for (_j = 0, _len1 = _ref6.length; _j < _len1; _j++) {
         param = _ref6[_j];
         if (param.paramType === 'form') {

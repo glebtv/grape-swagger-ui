@@ -971,7 +971,7 @@
           requestContentType = this.opts.requestContentType;
         }
       } else {
-        if (((function() {
+        var form_params = (function() {
           var _i, _len, _ref, _results;
           _ref = this.operation.parameters;
           _results = [];
@@ -982,9 +982,10 @@
             }
           }
           return _results;
-        }).call(this)).length > 0) {
+        }).call(this);
+        if (form_params.length > 0) {
           type = param.type || param.dataType;
-          if ((function() {
+          var uploads = (function() {
             var _i, _len, _ref, _results;
             _ref = this.operation.parameters;
             _results = [];
@@ -995,7 +996,8 @@
               }
             }
             return _results;
-          }).call(this)) {
+          }).call(this);
+          if (uploads.length > 0) {
             requestContentType = "multipart/form-data";
           } else {
             requestContentType = "application/x-www-form-urlencoded";
@@ -1024,7 +1026,6 @@
       }
       if (responseContentType && this.operation.produces) {
         if (this.operation.produces.indexOf(responseContentType) === -1) {
-          console.log("server can't produce " + responseContentType);
         }
       }
       if (requestContentType && requestContentType.indexOf("application/x-www-form-urlencoded") === 0) {
